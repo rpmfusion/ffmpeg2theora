@@ -1,12 +1,12 @@
 Name:           ffmpeg2theora
 Version:        0.23
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
 License:        GPLv2+
-URL:            http://www.v2v.cc/~j/ffmpeg2theora/
-Source0:        http://www.v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
+URL:            http://v2v.cc/~j/ffmpeg2theora/
+Source0:        http://v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
@@ -17,7 +17,7 @@ BuildRequires:  ffmpeg-devel, libogg-devel, libtheora-devel, libvorbis-devel
 With ffmpeg2theora you can convert any file that ffmpeg can
 decode to theora. right now the settings are hardcoded into
 the binary. the idea is to provide ffmpeg2theora as a binary
-along sites like v2v.cc to enable as many peprefix:ople as possible
+along sites like v2v.cc to enable as many people as possible
 to encode video clips with the same settings.
 
 %prep
@@ -47,6 +47,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Dec 19 2008 kwizart <kwizart at gmail.com> - 0.23-2
+- Fix URL - Fix back description
+
 * Fri Dec 19 2008 kwizart <kwizart at gmail.com> - 0.23-1
 - Update to 0.23
 - Change to build system to Scons
