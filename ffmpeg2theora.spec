@@ -1,6 +1,6 @@
 Name:           ffmpeg2theora
-Version:        0.21
-Release:        2%{?dist}
+Version:        0.23
+Release:        1%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
@@ -9,6 +9,7 @@ URL:            http://www.v2v.cc/~j/ffmpeg2theora/
 Source0:        http://www.v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires:  scons
 BuildRequires:  ffmpeg-devel, libogg-devel, libtheora-devel, libvorbis-devel
 
 
@@ -16,7 +17,7 @@ BuildRequires:  ffmpeg-devel, libogg-devel, libtheora-devel, libvorbis-devel
 With ffmpeg2theora you can convert any file that ffmpeg can
 decode to theora. right now the settings are hardcoded into
 the binary. the idea is to provide ffmpeg2theora as a binary
-along sites like v2v.cc to enable as many people as possible
+along sites like v2v.cc to enable as many peprefix:ople as possible
 to encode video clips with the same settings.
 
 %prep
@@ -24,14 +25,15 @@ to encode video clips with the same settings.
 
 
 %build
-%configure --disable-static
-make %{?_smp_mflags}
+scons APPEND_CCFLAGS="$RPM_OPT_FLAGS"
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
-
+scons install destdir=$RPM_BUILD_ROOT prefix=%{_prefix}
+mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1
+mv $RPM_BUILD_ROOT%{_prefix}/man/man1/ffmpeg2theora.1 $RPM_BUILD_ROOT%{_mandir}/man1
+rm -rf $RPM_BUILD_ROOT%{_prefix}/man
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,6 +47,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Dec 19 2008 kwizart <kwizart at gmail.com> - 0.23-1
+- Update to 0.23
+- Change to build system to Scons
+
 * Sat Aug 09 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.21-2
 - rebuild
 
