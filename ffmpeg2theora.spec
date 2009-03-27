@@ -1,6 +1,6 @@
 Name:           ffmpeg2theora
-Version:        0.23
-Release:        2%{?dist}
+Version:        0.24
+Release:        1%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
@@ -22,7 +22,8 @@ to encode video clips with the same settings.
 
 %prep
 %setup -q
-
+#Theora is not beta anymore
+sed -i -e 's/1.0beta1/1.0/' SConstruct
 
 %build
 scons APPEND_CCFLAGS="$RPM_OPT_FLAGS"
@@ -47,6 +48,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Mar 27 2009 kwizart <kwizart at gmail.com> - 0.24-1
+- Update to 0.24
+
 * Fri Dec 19 2008 kwizart <kwizart at gmail.com> - 0.23-2
 - Fix URL - Fix back description
 
