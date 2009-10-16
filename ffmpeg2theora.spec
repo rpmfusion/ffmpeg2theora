@@ -1,5 +1,5 @@
 Name:           ffmpeg2theora
-Version:        0.24
+Version:        0.25
 Release:        1%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
@@ -10,7 +10,11 @@ Source0:        http://v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
-BuildRequires:  ffmpeg-devel, libogg-devel, libtheora-devel, libvorbis-devel
+BuildRequires:  ffmpeg-devel
+BuildRequires:  libkate-devel
+BuildRequires:  libogg-devel ogg >= 1.1
+BuildRequires:  libtheora-devel >= 1.1.0
+BuildRequires:  libvorbis-devel
 
 
 %description
@@ -22,8 +26,7 @@ to encode video clips with the same settings.
 
 %prep
 %setup -q
-#Theora is not beta anymore
-sed -i -e 's/1.0beta1/1.0/' SConstruct
+
 
 %build
 scons APPEND_CCFLAGS="$RPM_OPT_FLAGS"
@@ -48,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Oct 16 2009 kwizart <kwizart at gmail.com> - 0.25-1
+- Update to 0.25
+
 * Fri Mar 27 2009 kwizart <kwizart at gmail.com> - 0.24-1
 - Update to 0.24
 
