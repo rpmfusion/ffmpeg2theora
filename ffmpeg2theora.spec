@@ -12,7 +12,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  scons
 BuildRequires:  ffmpeg-devel
 BuildRequires:  libkate-devel
-BuildRequires:  libogg-devel ogg >= 1.1
+BuildRequires:  libogg-devel >= 1.1
 BuildRequires:  libtheora-devel >= 1.1.0
 BuildRequires:  libvorbis-devel
 
