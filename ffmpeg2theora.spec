@@ -1,12 +1,13 @@
 Name:           ffmpeg2theora
 Version:        0.26
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://v2v.cc/~j/ffmpeg2theora/
 Source0:        http://v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
+Patch0:         ffmpeg2theora-0.26-ldflags.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
@@ -26,6 +27,7 @@ to encode video clips with the same settings.
 
 %prep
 %setup -q
+%patch0 -p1 -b .ldflags
 
 
 %build
@@ -51,6 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon May 31 2010 Nicolas Chauvet <kwizart@gmail.com> - 0.26-2
+- Rebuilt for ldflags
+
 * Sun Feb 28 2010 Nicolas Chauvet <kwizart@fedoraproject.org> - 0.26-1
 - Update to 0.26
 
