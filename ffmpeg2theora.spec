@@ -1,13 +1,13 @@
 Name:           ffmpeg2theora
-Version:        0.26
-Release:        2%{?dist}
+Version:        0.27
+Release:        1%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://v2v.cc/~j/ffmpeg2theora/
 Source0:        http://v2v.cc/~j/ffmpeg2theora/ffmpeg2theora-%{version}.tar.bz2
-Patch0:         ffmpeg2theora-0.26-ldflags.patch
+Patch0:         ffmpeg2theora-0.27-ldflags.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
@@ -53,6 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Oct 14 2010 Nicolas Chauvet <kwizart@gmail.com> - 0.27-1
+- Update to 0.27
+
 * Mon May 31 2010 Nicolas Chauvet <kwizart@gmail.com> - 0.26-2
 - Rebuilt for ldflags
 
