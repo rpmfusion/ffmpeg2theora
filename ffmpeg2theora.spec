@@ -1,6 +1,6 @@
 Name:           ffmpeg2theora
 Version:        0.28
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
@@ -51,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Feb 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.28-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Fri Sep 23 2011 Nicolas Chauvet <kwizart@gmail.com> - 0.28-1
 - Update to 0.28
 
