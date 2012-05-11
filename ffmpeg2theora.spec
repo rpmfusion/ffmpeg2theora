@@ -1,12 +1,13 @@
+%global posttag svn18165
 Name:           ffmpeg2theora
 Version:        0.28
-Release:        4%{?dist}
+Release:        5.%{posttag}%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://v2v.cc/~j/ffmpeg2theora/
-Source0:        http://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-%{version}.tar.bz2
+Source0:        http://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-%{version}+%{posttag}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
@@ -25,7 +26,7 @@ along sites like v2v.cc to enable as many people as possible
 to encode video clips with the same settings.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}+%{posttag}
 
 
 %build
@@ -51,6 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat May  5 2012 Michel Salim <salimma@fedoraproject.org> - 0.28-5.svn18165
+- Update to latest upstream commit, for FFmpeg 0.10 compatibility
+
 * Fri May 04 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.28-4
 - Rebuilt for FFmpeg
 
