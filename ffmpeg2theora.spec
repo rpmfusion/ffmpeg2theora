@@ -1,7 +1,7 @@
 %global posttag svn18165
 Name:           ffmpeg2theora
 Version:        0.28
-Release:        5.%{posttag}%{?dist}
+Release:        6.%{posttag}%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
@@ -52,6 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun 26 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.28-6.svn18165
+- Rebuilt for FFmpeg
+
 * Sat May  5 2012 Michel Salim <salimma@fedoraproject.org> - 0.28-5.svn18165
 - Update to latest upstream commit, for FFmpeg 0.10 compatibility
 
