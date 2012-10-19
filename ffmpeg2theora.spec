@@ -27,7 +27,7 @@ along sites like v2v.cc to enable as many people as possible
 to encode video clips with the same settings.
 
 %prep
-%setup -q -n %{name}-%{version}+%{posttag}
+%setup -q -n %{name}-%{version}
 
 
 %build
