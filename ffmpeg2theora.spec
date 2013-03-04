@@ -2,7 +2,7 @@
 
 Name:           ffmpeg2theora
 Version:        0.29
-Release:        2%{?posttag}%{?dist}
+Release:        3%{?posttag}%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
@@ -53,6 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Mar 04 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.29-3
+- Rebuilt for F-19 Features
+
 * Sat Nov 24 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.29-2
 - Rebuilt for ffmpeg
 
