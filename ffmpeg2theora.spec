@@ -2,13 +2,14 @@
 
 Name:           ffmpeg2theora
 Version:        0.29
-Release:        5%{?posttag}%{?dist}
+Release:        6%{?posttag}%{?dist}
 Summary:        Convert any file that ffmpeg can decode to theora
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://v2v.cc/~j/ffmpeg2theora/
 Source0:        http://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-%{version}.tar.bz2
+Patch0:         ffmpeg2theora-backport.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
@@ -28,6 +29,7 @@ to encode video clips with the same settings.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 
 
 %build
@@ -53,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Aug 20 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.29-6
+- Backport support for ffmpeg 2.0x
+
 * Thu Aug 15 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.29-5
 - Rebuilt for FFmpeg 2.0.x
 
